@@ -5,8 +5,12 @@
 - include: source.yml
   when: nginx_install_method == "source"
 - include: scripts.yml
+  when: not nginx_install_only
 - include: configure.yml
+  when: not nginx_install_only
 - include: default_site.yml
+  when: not nginx_install_only
 - include: sites.yml
+  when: not nginx_install_only
 - include: monit.yml
   when: monit_protection is defined and monit_protection == true
